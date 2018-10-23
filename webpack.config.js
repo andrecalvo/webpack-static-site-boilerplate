@@ -6,13 +6,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
+const srcDir = path.resolve(__dirname, "src");
+const distDir = path.resolve(__dirname, "dist");
+
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: path.join(srcDir, "index.js")
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./src",
+    contentBase: srcDir,
     hot: true,
     port: 9000
   },
@@ -50,8 +53,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new CopyWebpackPlugin([
-      { from: "./src/index.html", to: "" },
-      { from: "./src/img", to: "img" }
+      { from: path.join(srcDir, "index.html"), to: "" },
+      { from: path.join(srcDir, "img"), to: "img" }
     ]),
     process.env.NODE_ENV !== "production"
       ? new webpack.HotModuleReplacementPlugin()
@@ -63,6 +66,6 @@ module.exports = {
   ].filter(Boolean),
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: distDir
   }
 };
