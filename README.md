@@ -14,3 +14,5 @@ Features:
 - Webpack dev server
 - CSS/JS minification
 - Source maps
+
+As used for my personal site here: [andrecalvo.co.uk](https://andrecalvo.co.uk)
