@@ -1,0 +1,25 @@
+.wrapper-inner {
+  display: block;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 720px;
+
+  @media screen and (min-width: $breakMedium) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  @media screen and (min-width: $breakLarge) {
+    width: 100%;
+    max-width: 970px;
+  }
+  @media screen and (min-width: $breakWide) {
+    max-width: 1140px;
+  }
+
+  @include clearfix;
+}
+
+.wrapper-outer {
+  width: 100%;
+}

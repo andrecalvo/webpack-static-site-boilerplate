@@ -1,28 +1,39 @@
 {
-  "name": "WebpackStaticSiteBoilerplate",
-  "version": "1.0.0",
+  "name": "webpack-static-site-boilerplate",
+  "version": "1.1.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p",
-    "start": "NODE_ENV=development webpack-dev-server --hot --inline --mode development"
+    "start": "nodemon --watch ./build/ --exec \"webpack-dev-server --config ./build/webpack.config.js\"",
+    "build": "NODE_ENV=production webpack --config ./build/webpack.config.js --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andre Calvo",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.1.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^0.28.11",
+    "file-loader": "^2.0.0",
+    "handlebars": "^4.0.11",
+    "handlebars-loader": "^1.7.0",
+    "html-webpack-plugin": "^3.0.7",
+    "image-webpack-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.2.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
+    "postcss-normalize": "^4.0.0",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.3",
-    "css-loader": "^1.0.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.9.3",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.20.2",
-    "webpack-dev-server": "^3.1.9"
-  },
-  "devDependencies": {
-    "webpack-cli": "^3.1.2"
+    "babel-polyfill": "^6.26.0",
+    "nodemon": "^1.18.9"
   }
 }
